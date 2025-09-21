@@ -91,14 +91,6 @@ misinformation-detector/
    ```
 
 3. **Configure environment variables**
-   ```bash
-   # Copy environment template
-   cp .env.example .env
-   
-   # Edit .env with your API keys
-   GOOGLE_API_KEY=
-   NEWS_API_KEY=
-   ```
 
 4. **Run the application**
    ```bash
