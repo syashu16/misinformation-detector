@@ -88,6 +88,11 @@ def serve_advanced_js():
     """Serve advanced visualization JavaScript file"""
     return send_from_directory('../frontend', 'advanced-visualization.js')
 
+@app.route('/health')
+def root_health_check():
+    """Root health check endpoint for container health checks"""
+    return jsonify({'status': 'healthy', 'message': 'Misinformation Detector API is running'})
+
 @app.route('/api/health')
 def health_check():
     """Health check endpoint"""
