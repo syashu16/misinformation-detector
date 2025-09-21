@@ -119,8 +119,8 @@ misinformation-detector/
 2. **Run with environment variables**
    ```bash
    docker run -p 8080:8080 \
-     -e GOOGLE_API_KEY=AIzaSyAQqzZ4BNdi-sXEnkyGxZ17qDdKqUEcIPY \
-     -e NEWS_API_KEY=712ace18ed8b41228024c65a0847796f \
+     -e GOOGLE_API_KEY=
+     -e NEWS_API_KEY=
      misinformation-detector
    ```
 
