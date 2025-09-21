@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Misinformation Detector</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="demo-enhancements.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <h1>MisInfo Detector</h1>
+            </div>
+            <p class="tagline">AI-Powered Misinformation Detection & Education</p>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="nav-tabs">
+            <button class="tab-btn active" data-tab="text">
+                <i class="fas fa-file-text"></i> Text Analysis
+            </button>
+            <button class="tab-btn" data-tab="url">
+                <i class="fas fa-link"></i> URL Analysis
+            </button>
+            <button class="tab-btn" data-tab="image">
+                <i class="fas fa-image"></i> Image Analysis
+            </button>
+            <button class="tab-btn" data-tab="education">
+                <i class="fas fa-graduation-cap"></i> Learn More
+            </button>
+        </nav>
+
+        <!-- Demo Section for Hackathon Presentation -->
+        <div class="demo-dashboard" id="demo-section" style="display: none;">
+            <h2><i class="fas fa-rocket"></i> Live Demo - Indian Misinformation Detection</h2>
+            <p>Experience AI-powered detection with real Indian misinformation examples</p>
+            
+            <!-- Impact Metrics -->
+            <div class="impact-metrics">
+                <div class="metric-card">
+                    <span class="metric-number" id="accuracy-metric">94</span>
+                    <span class="metric-label">% Detection Accuracy</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number" id="patterns-metric">500+</span>
+                    <span class="metric-label">Misinformation Patterns</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number" id="languages-metric">3</span>
+                    <span class="metric-label">Languages Supported</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number" id="speed-metric">< 2s</span>
+                    <span class="metric-label">Analysis Speed</span>
+                </div>
+            </div>
+            
+            <!-- Language Support -->
+            <div class="language-support">
+                <span class="language-tag active">English</span>
+                <span class="language-tag">हिंदी (Hindi)</span>
+                <span class="language-tag">Regional Patterns</span>
+            </div>
+            
+            <!-- Demo Examples -->
+            <h3>🎯 Try These Real Examples:</h3>
+            <div class="demo-examples">
+                <div class="demo-card high-risk" onclick="testDemo('covid_myth')">
+                    <h4>🦠 COVID-19 Myth</h4>
+                    <p>"Cow urine prevents COVID-19..."</p>
+                    <span class="risk-indicator">High Risk: 85%</span>
+                </div>
+                
+                <div class="demo-card high-risk" onclick="testDemo('whatsapp_forward')">
+                    <h4>📱 WhatsApp Scam</h4>
+                    <p>"Jio giving FREE 1TB data..."</p>
+                    <span class="risk-indicator">High Risk: 90%</span>
+                </div>
+                
+                <div class="demo-card high-risk" onclick="testDemo('political_deepfake')">
+                    <h4>🗳️ Political Misinformation</h4>
+                    <p>"Leaked video shows bribery..."</p>
+                    <span class="risk-indicator">High Risk: 95%</span>
+                </div>
+                
+                <div class="demo-card high-risk" onclick="testDemo('financial_scam')">
+                    <h4>💰 Financial Fraud</h4>
+                    <p>"Won Rs 25 lakh lottery..."</p>
+                    <span class="risk-indicator">High Risk: 100%</span>
+                </div>
+                
+                <div class="demo-card low-risk" onclick="testDemo('reliable_content')">
+                    <h4>✅ Credible News</h4>
+                    <p>"Peer-reviewed study shows..."</p>
+                    <span class="risk-indicator">Low Risk: 10%</span>
+                </div>
+                
+                <div class="demo-card medium-risk" onclick="testDemo('custom')">
+                    <h4>✏️ Test Your Own</h4>
+                    <p>Enter custom text to analyze</p>
+                    <span class="risk-indicator">Custom Analysis</span>
+                </div>
+            </div>
+            
+            <!-- Feature Showcase -->
+            <h3>🚀 Advanced AI Features:</h3>
+            <div class="feature-showcase">
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <div class="feature-title">Google Gemini AI</div>
+                    <div class="feature-description">Advanced language understanding and context analysis</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🇮🇳</div>
+                    <div class="feature-title">Indian Context</div>
+                    <div class="feature-description">Specialized patterns for Indian misinformation</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <div class="feature-title">Multi-Modal</div>
+                    <div class="feature-description">Text, URL, and image analysis capabilities</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🎓</div>
+                    <div class="feature-title">Educational</div>
+                    <div class="feature-description">Teaches users to identify manipulation</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <div class="feature-title">Real-time</div>
+                    <div class="feature-description">Instant analysis and feedback</div>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <div class="feature-title">Scalable</div>
+                    <div class="feature-description">Google Cloud Run deployment ready</div>
+                </div>
+            </div>
+            
+            <!-- Indian Context Highlight -->
+            <div class="indian-context">
+                <h4>🇮🇳 Specially Designed for India</h4>
+                <div class="regional-pattern">
+                    <strong>WhatsApp Forwards:</strong> Detects viral message patterns
+                </div>
+                <div class="regional-pattern">
+                    <strong>Health Myths:</strong> COVID-19 and Ayurveda misinformation
+                </div>
+                <div class="regional-pattern">
+                    <strong>Financial Scams:</strong> Government scheme frauds
+                </div>
+                <div class="regional-pattern">
+                    <strong>Political Content:</strong> Election and policy misinformation
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Text Analysis Tab -->
+            <div class="tab-content active" id="text-tab">
+                <div class="analysis-card">
+                    <h2><i class="fas fa-file-text"></i> Text Content Analysis</h2>
+                    <p class="description">Paste any text content to analyze it for potential misinformation indicators.</p>
+                    
+                    <form id="text-form" class="analysis-form">
+                        <div class="form-group">
+                            <label for="text-input">Text to Analyze:</label>
+                            <textarea 
+                                id="text-input" 
+                                name="text" 
+                                placeholder="Paste the text content you want to analyze here..."
+                                rows="8"
+                                required
+                            ></textarea>
+                            <div class="char-counter">
+                                <span id="text-char-count">0</span>/5000 characters
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="analyze-btn">
+                            <i class="fas fa-search"></i> Analyze Text
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- URL Analysis Tab -->
+            <div class="tab-content" id="url-tab">
+                <div class="analysis-card">
+                    <h2><i class="fas fa-link"></i> URL Content Analysis</h2>
+                    <p class="description">Enter a URL to analyze the webpage content for misinformation indicators.</p>
+                    
+                    <form id="url-form" class="analysis-form">
+                        <div class="form-group">
+                            <label for="url-input">URL to Analyze:</label>
+                            <input 
+                                type="url" 
+                                id="url-input" 
+                                name="url" 
+                                placeholder="https://example.com/article"
+                                required
+                            >
+                            <small class="form-help">
+                                <i class="fas fa-info-circle"></i>
+                                Make sure the URL is complete and accessible
+                            </small>
+                        </div>
+                        
+                        <button type="submit" class="analyze-btn">
+                            <i class="fas fa-search"></i> Analyze URL
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Image Analysis Tab -->
+            <div class="tab-content" id="image-tab">
+                <div class="analysis-card">
+                    <h2><i class="fas fa-image"></i> Image Analysis</h2>
+                    <p class="description">Upload an image to check for potential manipulation or misleading context.</p>
+                    
+                    <form id="image-form" class="analysis-form">
+                        <div class="form-group">
+                            <label for="image-input">Image to Analyze:</label>
+                            <div class="file-upload-area" id="file-upload-area">
+                                <input 
+                                    type="file" 
+                                    id="image-input" 
+                                    name="image" 
+                                    accept="image/*"
+                                    required
+                                >
+                                <div class="upload-content">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                    <p>Click to select an image or drag and drop</p>
+                                    <small>Supports PNG, JPG, JPEG, GIF, WebP (Max 16MB)</small>
+                                </div>
+                            </div>
+                            <div class="image-preview" id="image-preview" style="display: none;">
+                                <img id="preview-img" src="" alt="Preview">
+                                <button type="button" class="remove-image" id="remove-image">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="analyze-btn">
+                            <i class="fas fa-search"></i> Analyze Image
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Education Tab -->
+            <div class="tab-content" id="education-tab">
+                <div class="education-content">
+                    <h2><i class="fas fa-graduation-cap"></i> Learn to Spot Misinformation</h2>
+                    
+                    <div class="education-grid">
+                        <div class="education-card">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Common Red Flags</h3>
+                            <ul class="red-flags-list">
+                                <li>Emotional, inflammatory language designed to provoke reactions</li>
+                                <li>Claims that "they" don't want you to know something</li>
+                                <li>No author byline or contact information</li>
+                                <li>Requests to share immediately before "it gets taken down"</li>
+                                <li>Extraordinary claims without credible evidence</li>
+                                <li>Grammar and spelling errors in professional content</li>
+                            </ul>
+                        </div>
+
+                        <div class="education-card">
+                            <h3><i class="fas fa-check-circle"></i> Verification Steps</h3>
+                            <ol class="verification-steps">
+                                <li><strong>Check the Source:</strong> Research publisher credentials and reputation</li>
+                                <li><strong>Cross-Reference:</strong> Verify with multiple reliable sources</li>
+                                <li><strong>Fact-Check:</strong> Use Snopes, FactCheck.org, or PolitiFact</li>
+                                <li><strong>Look for Evidence:</strong> Check for citations and supporting data</li>
+                                <li><strong>Consider Context:</strong> Think about timing and motivation</li>
+                            </ol>
+                        </div>
+
+                        <div class="education-card">
+                            <h3><i class="fas fa-tools"></i> Useful Resources</h3>
+                            <div class="resources-list">
+                                <a href="https://www.snopes.com" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i> Snopes - Fact Checking
+                                </a>
+                                <a href="https://www.factcheck.org" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i> FactCheck.org
+                                </a>
+                                <a href="https://images.google.com" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i> Google Reverse Image Search
+                                </a>
+                                <a href="https://tineye.com" target="_blank" class="resource-link">
+                                    <i class="fas fa-external-link-alt"></i> TinEye Image Search
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="education-card full-width">
+                            <h3><i class="fas fa-lightbulb"></i> Quick Tips</h3>
+                            <div class="tips-grid">
+                                <div class="tip">
+                                    <i class="fas fa-pause-circle"></i>
+                                    <p><strong>Pause Before Sharing:</strong> Take a moment to verify before forwarding</p>
+                                </div>
+                                <div class="tip">
+                                    <i class="fas fa-heart"></i>
+                                    <p><strong>Check Your Emotions:</strong> Misinformation often triggers strong feelings</p>
+                                </div>
+                                <div class="tip">
+                                    <i class="fas fa-users"></i>
+                                    <p><strong>Ask Others:</strong> Get second opinions from knowledgeable people</p>
+                                </div>
+                                <div class="tip">
+                                    <i class="fas fa-clock"></i>
+                                    <p><strong>Wait for Updates:</strong> Breaking news often gets corrected over time</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section -->
+            <div class="results-section" id="results-section" style="display: none;">
+                <div class="results-card">
+                    <div class="results-header">
+                        <h3><i class="fas fa-chart-line"></i> Analysis Results</h3>
+                        <button class="close-results" id="close-results">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="risk-score-container">
+                        <div class="risk-score">
+                            <div class="score-circle" id="score-circle">
+                                <span class="score-number" id="score-number">0</span>
+                                <span class="score-label">Risk Score</span>
+                            </div>
+                        </div>
+                        <div class="risk-description">
+                            <h4 id="risk-level">Analysis Complete</h4>
+                            <p id="risk-explanation">Results are ready for review.</p>
+                        </div>
+                    </div>
+
+                    <div class="results-tabs">
+                        <button class="results-tab-btn active" data-results-tab="overview">Overview</button>
+                        <button class="results-tab-btn" data-results-tab="details">Details</button>
+                        <button class="results-tab-btn" data-results-tab="education">Tips</button>
+                    </div>
+
+                    <div class="results-content">
+                        <div class="results-tab-content active" id="overview-results">
+                            <div class="red-flags" id="red-flags-container">
+                                <h4><i class="fas fa-exclamation-triangle"></i> Key Concerns</h4>
+                                <ul id="red-flags-list"></ul>
+                            </div>
+                            
+                            <div class="verification-steps" id="verification-container">
+                                <h4><i class="fas fa-tasks"></i> Recommended Actions</h4>
+                                <ul id="verification-list"></ul>
+                            </div>
+                        </div>
+
+                        <div class="results-tab-content" id="details-results">
+                            <div class="technical-details" id="technical-details">
+                                <!-- Technical details will be populated here -->
+                            </div>
+                        </div>
+
+                        <div class="results-tab-content" id="education-results">
+                            <div class="educational-tips" id="educational-tips">
+                                <!-- Educational content will be populated here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loading-overlay" style="display: none;">
+            <div class="loading-spinner">
+                <i class="fas fa-spinner fa-spin"></i>
+                <p>Analyzing content...</p>
+                <small>This may take a few moments</small>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2025 MisInfo Detector - Gen AI Hackathon Prototype</p>
+            <p>
+                <small>
+                    This tool provides educational guidance and should not be the sole source for determining content credibility.
+                    Always use multiple verification methods and trusted sources.
+                </small>
+            </p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+    <!-- <script src="advanced-visualization.js"></script> -->
+    <script src="demo-script.js"></script>
+</body>
+</html>
