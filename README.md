@@ -96,8 +96,8 @@ misinformation-detector/
    cp .env.example .env
    
    # Edit .env with your API keys
-   GOOGLE_API_KEY=AIzaSyAQqzZ4BNdi-sXEnkyGxZ17qDdKqUEcIPY
-   NEWS_API_KEY=712ace18ed8b41228024c65a0847796f
+   GOOGLE_API_KEY=
+   NEWS_API_KEY=
    ```
 
 4. **Run the application**
