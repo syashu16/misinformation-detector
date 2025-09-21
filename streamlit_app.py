@@ -79,6 +79,20 @@ def setup_gemini_api(api_key):
         st.error(f"Failed to setup Gemini AI: {str(e)}")
         return False
 
+# Check for API key in secrets or environment
+def get_api_key():
+    """Get API key from secrets or environment"""
+    try:
+        # Try Streamlit secrets first
+        if hasattr(st, 'secrets') and 'GOOGLE_API_KEY' in st.secrets:
+            return st.secrets['GOOGLE_API_KEY']
+        # Try environment variable
+        elif 'GOOGLE_API_KEY' in os.environ:
+            return os.environ['GOOGLE_API_KEY']
+    except:
+        pass
+    return None
+
 def analyze_text_with_gemini(text, model):
     """Analyze text using Gemini AI"""
     try:
@@ -229,14 +243,21 @@ def main():
     with st.sidebar:
         st.header("🔑 Configuration")
         
+        # Check for existing API key
+        existing_api_key = get_api_key()
+        if existing_api_key and not st.session_state.api_key_set:
+            if setup_gemini_api(existing_api_key):
+                st.success("✅ Gemini AI configured from secrets!")
+        
         # API Key input
         api_key = st.text_input(
             "Enter Google Gemini API Key:",
             type="password",
-            help="Get your API key from Google AI Studio"
+            help="Get your API key from Google AI Studio",
+            value="" if not existing_api_key else "✓ Key loaded from secrets"
         )
         
-        if api_key and not st.session_state.api_key_set:
+        if api_key and not st.session_state.api_key_set and api_key != "✓ Key loaded from secrets":
             if setup_gemini_api(api_key):
                 st.success("✅ Gemini AI configured successfully!")
             else:
